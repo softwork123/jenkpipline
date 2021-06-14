@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="f5f01fcd-1fe2-415d-812b-11b47d960085" >
+		<http:listener-connection host="0.0.0.0" port="6060" />
+	</http:listener-config>
+	<flow name="piplineFlow" doc:id="384df25e-3f8c-4ede-92ac-7effdf045fb8" >
+		<http:listener doc:name="Listener" doc:id="cfd91f6c-fb98-4d2c-8d0e-8a29227bbabc" config-ref="HTTP_Listener_config" path="/welcom to pipline"/>
+		<logger level="INFO" doc:name="Logger" doc:id="936ca03f-1477-4a24-a9d0-66e6629fe420" />
+		<set-payload value="sample test for jenkins pipline " doc:name="Set Payload" doc:id="eeca557a-52ba-4435-b8b0-0eb7a86ad425" />
+		<logger level="INFO" doc:name="Logger" doc:id="b75dcdc7-2cf0-4a98-be19-8621e968bd5a" />
+	</flow>
+</mule>
